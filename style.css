@@ -1,0 +1,12 @@
+* {
+    /* DEBUG */
+    background-color: #333333;
+    color: #eee;
+
+
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Roboto, system-ui, sans-serif;
+}
+
