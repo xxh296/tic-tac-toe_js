@@ -1,1 +1,1 @@
-# This is the Tic Tac Toe [assignment](https://www.theodinproject.com/lessons/node-path-javascript-tic-tac-toe) from The Odin Project.  
+# This is [the Tic Tac Toe assignment](https://www.theodinproject.com/lessons/node-path-javascript-tic-tac-toe) from The Odin Project.  
