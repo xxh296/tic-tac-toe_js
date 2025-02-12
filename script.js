@@ -15,12 +15,12 @@ const createPlayer = (function () {
                 console.log("First player must choose either 'X' or 'O'.");
             }
             firstChoice = xOrO;
-            console.log("You just chose 'X' or 'O' successfully.")
+            console.log("You just chose '" + firstChoice + "'.")
         } else {
             // Automatically assign the opposite symbol to the second player
             xOrO = firstChoice === "X" ? "O" : "X";
-            if (count <2){
-                console.log("Your 'X' or 'O' has been assigned.")
+            if (count === 1){
+                console.log("'" + xOrO + "' was assigned successfully.")
             }            
         }
 
@@ -98,6 +98,46 @@ const play = (function () {
     };
 
 })();
+
+// gameController
+//
+const gameController = (function(){
+    // DEBUG/testing -
+    // users will be added from the UI
+    const player1 = createPlayer("Jennifer Smith van den Browne", "X"); // Jen chooses "X"
+    const player2 = createPlayer("Bob", "O");   // Bob is automatically assigned "O"
+    // console.log(player1, player2);
+    
+    
+    // the 'X' player to make the first move
+    // then the players will alternate
+    // this needs to be tied to a click event in the UI
+    const xPlayer = (player1.xOrO === "X") ? player1 : player2;
+    const oPlayer = (player1.xOrO === "O") ? player1 : player2;
+    // DEBUG
+    console.log(xPlayer);
+    console.log(oPlayer);
+
+    // set up the 9-cell grid in Html/Css/js
+    // write this to UI
+    console.log(xPlayer.name + ", please click a cell.");
+    // rest of the logic - 
+    // capture the cellId where the user clicks, place and 'X' in it, etc.
+    // assign latestMove (once the first 'X' is placed), then alternate 'X' and 'O'
+    // also, make sure each 'X'/'O' is placed on the grid, have a counter for this, 
+    // or use `while...`, that'll watch for any "" cells.
+    let latestMove = "X"; 
+
+
+    return {player1, player2}; // TODO: check, if access from higher scope is needed
+                                // if so, see if the above code need to be moved out?
+
+})();
+
+
+
+
+
 
 // // factory to create players
 // function createPlayer (name, xOrO) {
