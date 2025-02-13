@@ -128,6 +128,23 @@ const gameController = (function(){
     // or use `while...`, that'll watch for any "" cells.
     let latestMove = "X"; 
 
+    // btn-start that shows up on page load
+    const btnStart = document.querySelector("#btn-start");
+    btnStart.addEventListener("click", () => {
+        btnStart.remove();
+        // add code to display the form 
+        // for the first player's name and X/O
+    })
+    
+    // form-first-player
+    const formFirstPlayer = document.querySelector("#form-first-player");
+    formFirstPlayer.addEventListener("submit", (event) => {
+        event.preventDefault();
+        // add code to collect data
+        // toggle visibility, 
+        // and bring up the next form.
+    })
+
 
     return {player1, player2}; // TODO: check, if access from higher scope is needed
                                 // if so, see if the above code need to be moved out?

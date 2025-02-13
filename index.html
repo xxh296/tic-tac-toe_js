@@ -12,6 +12,26 @@
 </head>
 <body>
     <h1>Tic Tac Toe</h1>
+    <br><br><br>
+    <div class="content">
+        <button id="btn-start">Play Tic Tac Toe</button>
+        <form action="submit" id="form-first-player">
+            <input type="text" name="" id="input-first-player" placeholder="First player's name" required>
+            <fieldset>
+                <legend>Playing crosses (Xs) or noughts (Os)?</legend>
+                <label>
+                  <input type="radio" name="response" value="X" required> Crosses (Xs)
+                </label>
+                <label>
+                  <input type="radio" name="response" value="O"> Noughts (Os)
+                </label>
+              </fieldset>
+              <button type="submit">Submit</button>
+        </form>
+        <form action="submit" id="form-second-player"></form>
+    </div>
+    <br><br><br>
+
     <p>For the UI:
         <ul>
             <li>A button to start the game (to replace onclick with a form for player1 and player2 names)</li>

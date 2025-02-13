@@ -1,5 +1,6 @@
 * {
     /* DEBUG */
+    /* outline: solid silver; */
     background-color: #333333;
     color: #eee;
 
@@ -8,6 +9,16 @@
     padding: 0;
     box-sizing: border-box;
     font-family: Roboto, system-ui, sans-serif;
+}
+
+#btn-start {
+    background-color: #999;
+    color: #33cccc;
+    border: none;
+}
+
+#form-first-player, #form-second-player {
+    /* background-color: #999; */
 }
 
 
