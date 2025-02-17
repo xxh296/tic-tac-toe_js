@@ -2,7 +2,6 @@
 // autocorrect the second player's choise to X or O
 const createPlayer = (function () {
     let count = 0;
-    let firstChoice = null; // first player's choice will go here
 
     return function (name, xOrO) {
         if (count >= 2) {
@@ -84,6 +83,8 @@ const play = (function () {
 
 })();
 
+// TODO: can these vars be moved out
+// of the global scope
 let player1 = null;
 let player2 = null;
 
@@ -91,20 +92,23 @@ let player2 = null;
 const gameController = (function(){
 
     const formPlayers = document.querySelector("#form-players");
+    const gameBoard = document.querySelector("#gameboard");
+
     formPlayers.addEventListener("submit", (event) => {
         event.preventDefault();
         player1 = createPlayer(document.querySelector('#input-first-player').value, document.querySelector('input[name="response-player1"]:checked').value);
 
-    // xOrO for player2 depends on player1's xOrO
-    let secondXorO = "";
-    if (player1.xOrO === "X"){
-        secondXorO = "O";
-    } else {
-        secondXorO = "X";
-    }
+        // xOrO for player2 depends on player1's xOrO
+        let secondXorO = "";
+        if (player1.xOrO === "X"){
+            secondXorO = "O";
+        } else {
+            secondXorO = "X";
+        }
 
-    player2 = createPlayer(document.querySelector('#input-second-player').value, secondXorO);
-    formPlayers.remove();
+        player2 = createPlayer(document.querySelector('#input-second-player').value, secondXorO);
+        gameBoard.style.display = "grid";
+        formPlayers.remove();
     });
 
      return {player1, player2}
