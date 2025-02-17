@@ -11,16 +11,8 @@
     font-family: Roboto, system-ui, sans-serif;
 }
 
-#btn-start {
-    background-color: #999;
-    color: #33cccc;
-    border: none;
-}
-
-#form-first-player, #form-second-player {
-    /* background-color: #999; */
-}
-
-
+#btn-form-players {
+    display: block;
+} 
 
 
