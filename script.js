@@ -9,21 +9,6 @@ const createPlayer = (function () {
             console.log("Only 2 players can be created.");
         }
 
-        // if (count === 0) {
-        //     // First player chooses freely
-        //     if (xOrO !== "X" && xOrO !== "O") {
-        //         console.log("First player must choose either 'X' or 'O'.");
-        //     }
-        //     firstChoice = xOrO;
-        //     console.log("You just chose '" + firstChoice + "'.")
-        // } else {
-        //     // Automatically assign the opposite symbol to the second player
-        //     xOrO = firstChoice === "X" ? "O" : "X";
-        //     if (count === 1){
-        //         console.log("'" + xOrO + "' was assigned successfully.")
-        //     }            
-        // }
-
         count++;
         return { name, xOrO };
     };
@@ -99,51 +84,15 @@ const play = (function () {
 
 })();
 
-// gameController
-//
-
-
-/*
-
-const gameController = (function(){
-    // create players
-    let player1 = createPlayer(document.querySelector('#input-first-player').value, document.querySelector('input[name="response-player1"]:checked').value);
-
-    // xOrO for player2 depends on player1's xOrO
-    let secondXorO = "";
-    if (player1.xOrO === "X"){
-        secondXorO = "O";
-    } else {
-        secondXorO = "X";
-    }
-    let player2 = createPlayer(document.querySelector('#input-second-player').value, secondXorO);
-    
-    let latestMove = "X"; 
-    
-    // form-players
-    const formPlayers = document.querySelector("#form-players");
-    formPlayers.addEventListener("submit", (event) => {
-        event.preventDefault();
-    });
-
-    return {player1, player2,  }; // TODO: check, if access from higher scope is needed
-})();
-
-*/
-
-
-
 let player1 = null;
 let player2 = null;
 
 
 const gameController = (function(){
 
-    // form-players
     const formPlayers = document.querySelector("#form-players");
     formPlayers.addEventListener("submit", (event) => {
         event.preventDefault();
-
         player1 = createPlayer(document.querySelector('#input-first-player').value, document.querySelector('input[name="response-player1"]:checked').value);
 
     // xOrO for player2 depends on player1's xOrO
@@ -153,7 +102,9 @@ const gameController = (function(){
     } else {
         secondXorO = "X";
     }
+
     player2 = createPlayer(document.querySelector('#input-second-player').value, secondXorO);
+    formPlayers.remove();
     });
 
      return {player1, player2}
