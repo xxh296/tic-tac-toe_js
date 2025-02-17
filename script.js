@@ -14,10 +14,11 @@ const createPlayer = (function () {
 })();
 
 const play = (function () {
+    //DEBUG: test values for some cells
     const Gameboard = {
-        A_1: "", B_1: "", C_1: "",
-        A_2: "", B_2: "", C_2: "",
-        A_3: "", B_3: "", C_3: "",
+        A_1: "X", B_1: "", C_1: "",
+        A_2: "", B_2: "", C_2: "O",
+        A_3: "", B_3: "X", C_3: "",
     }
 
     function checkForGameover() {
@@ -113,3 +114,15 @@ const gameController = (function(){
 
      return {player1, player2}
 })();
+
+    // UI gameboard values need to come from Gameboard
+    function populateGameboard() {
+        for (const [key, value] of Object.entries(play.Gameboard)) {
+            const cell = document.querySelector(`#${key}`);            
+            cell.textContent = value;
+        }
+    }
+
+    // TODO: get any .cell div
+    // fill its play.Gameboard value
+    // then populateGameboard,etc.
