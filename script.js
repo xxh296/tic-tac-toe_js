@@ -139,6 +139,7 @@ function changeTurn(){
 }
 
 const cells = document.querySelectorAll(".cell");
+const notifications = document.querySelector("#notifications");
 cells.forEach(cell => {
     cell.addEventListener("click", (event) => {
         // target the clicked cell
@@ -150,7 +151,22 @@ cells.forEach(cell => {
         if (turn === "O" && play.checkForGameover() === null){
             play.makeMoveO(clickedCell.id);
         } 
+
+        if (play.checkForGameover() === "X" || play.checkForGameover() === "O"){
+            determineWinner(play.checkForGameover);
+        }
+
         changeTurn();
     });
 });
+
+function determineWinner(winningSymbol){
+    if (player1.xOrO === winningSymbol){
+        notifications.innerText = "Game over. " + player1.name + " won!";
+    } else if (player2.xOrO = winningSymbol){
+        notifications.innerText = "Game over. " + player2.name + " won!";
+    } else {
+        return null;
+    }
+}
 
