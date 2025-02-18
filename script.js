@@ -118,6 +118,7 @@ const gameController = (function(){
         player2 = createPlayer(document.querySelector('#input-second-player').value, secondXorO);
         gameBoard.style.display = "grid";
         formPlayers.remove();
+        notifications.innerText = "Turn: X";
     });
 
      return {player1, player2}
@@ -135,9 +136,9 @@ const gameController = (function(){
 // whose turn?
 let turn = "X";
 function changeTurn(){
-    if (turn === "O"){
+    if (turn === "O"){        
         turn = "X";
-    } else {
+    } else {        
         turn = "O";
     }
 }
@@ -152,12 +153,15 @@ cells.forEach(cell => {
 
         if (turn === "X" && play.checkForGameover() === null){
             play.makeMoveX(clickedCell.id);
+            notifications.innerText = "Turn: O";
         }
         if (turn === "O" && play.checkForGameover() === null){
             play.makeMoveO(clickedCell.id);
+            notifications.innerText = "Turn: X";
         } 
 
         if (play.checkForGameover() === "X" || play.checkForGameover() === "O" || play.checkForGameover() === "Tie"){
+            notifications.innerText = "";
             determineWinner(play.checkForGameover());
         }
 
@@ -177,4 +181,3 @@ function determineWinner(winningSymbol){
 }
 
 playAgainBtn.addEventListener("click", () => location.reload());
-
