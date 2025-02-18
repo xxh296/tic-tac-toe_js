@@ -138,6 +138,7 @@ function changeTurn(){
 
 const cells = document.querySelectorAll(".cell");
 const notifications = document.querySelector("#notifications");
+const playAgainBtn = document.querySelector("#play-again");
 cells.forEach(cell => {
     cell.addEventListener("click", (event) => {
         // target the clicked cell
@@ -166,5 +167,8 @@ function determineWinner(winningSymbol){
     } else {
         notifications.innerText = "It's a tie.";
     }
+    playAgainBtn.style.display = "block";
 }
+
+playAgainBtn.addEventListener("click", () => location.reload());
 
