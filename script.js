@@ -16,9 +16,9 @@ const createPlayer = (function () {
 const play = (function () {
     //DEBUG: test values for some cells
     const Gameboard = {
-        A_1: "X", B_1: "", C_1: "",
-        A_2: "", B_2: "", C_2: "O",
-        A_3: "", B_3: "X", C_3: "",
+        A_1: "", B_1: "", C_1: "",
+        A_2: "", B_2: "", C_2: "",
+        A_3: "", B_3: "", C_3: "",
     }
 
     function checkForGameover() {
@@ -57,9 +57,12 @@ const play = (function () {
 
     // mark an empty cell as X
     const makeMoveX = (cell) => {
+        // DEBUG
+        // console.log("Cell in Gameboard: " + Gameboard[cell]);
         if (Gameboard[cell] === ""){
             Gameboard[cell] = "X";
-            return checkForGameover();
+            populateGameboard();
+            // return checkForGameover();
         } else {
             console.log("This cell is already used.")
         }
@@ -69,7 +72,8 @@ const play = (function () {
     const makeMoveO = (cell) => {
         if (Gameboard[cell] === ""){
             Gameboard[cell] = "O";
-            return checkForGameover();
+            populateGameboard();
+            // return checkForGameover();
         } else {
             console.log("This cell is already used.")
         }
@@ -116,6 +120,7 @@ const gameController = (function(){
 })();
 
     // UI gameboard values need to come from Gameboard
+    // TODO: see, if it can be moved away from the global scope
     function populateGameboard() {
         for (const [key, value] of Object.entries(play.Gameboard)) {
             const cell = document.querySelector(`#${key}`);            
@@ -123,6 +128,29 @@ const gameController = (function(){
         }
     }
 
-    // TODO: get any .cell div
-    // fill its play.Gameboard value
-    // then populateGameboard,etc.
+// whose turn?
+let turn = "X";
+function changeTurn(){
+    if (turn === "O"){
+        turn = "X";
+    } else {
+        turn = "O";
+    }
+}
+
+const cells = document.querySelectorAll(".cell");
+cells.forEach(cell => {
+    cell.addEventListener("click", (event) => {
+        // target the clicked cell
+        const clickedCell = event.target;
+
+        if (turn === "X" && play.checkForGameover() === null){
+            play.makeMoveX(clickedCell.id);
+        }
+        if (turn === "O" && play.checkForGameover() === null){
+            play.makeMoveO(clickedCell.id);
+        } 
+        changeTurn();
+    });
+});
+
