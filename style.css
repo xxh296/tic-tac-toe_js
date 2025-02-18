@@ -74,11 +74,21 @@ fieldset {
 .cell {
     width: 8rem;
     height: 8rem;
-    border: 2px solid darkorange;
     font-size: 5rem;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+#A_1, #B_1, 
+#A_2, #B_2, 
+#A_3, #B_3 {
+    border-right: 2px solid darkorange;
+}
+
+#A_1, #B_1, #C_1,
+#A_2, #B_2, #C_2 {
+    border-bottom: 2px solid darkorange;
 }
 
 #notifications {

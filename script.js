@@ -38,14 +38,14 @@ const play = (function () {
             if (value && value === Gameboard[cell2] && value === Gameboard[cell3]) {
                 switch (value) {
                     case "X":
-                        document.querySelector(`#${cell1}`).style.backgroundColor = "darkorange";
-                        document.querySelector(`#${cell2}`).style.backgroundColor = "darkorange";
-                        document.querySelector(`#${cell3}`).style.backgroundColor = "darkorange";
+                        document.querySelector(`#${cell1}`).style.color = "darkorange";
+                        document.querySelector(`#${cell2}`).style.color = "darkorange";
+                        document.querySelector(`#${cell3}`).style.color = "darkorange";
                         return "X"; // X wins
                     case "O":
-                        document.querySelector(`#${cell1}`).style.backgroundColor = "darkorange";
-                        document.querySelector(`#${cell2}`).style.backgroundColor = "darkorange";
-                        document.querySelector(`#${cell3}`).style.backgroundColor = "darkorange";
+                        document.querySelector(`#${cell1}`).style.color = "darkorange";
+                        document.querySelector(`#${cell2}`).style.color = "darkorange";
+                        document.querySelector(`#${cell3}`).style.color = "darkorange";
                         return "O"; // O wins
                 }
             }
@@ -165,9 +165,9 @@ cells.forEach(cell => {
 
 function determineWinner(winningSymbol){
     if (player1.xOrO === winningSymbol){
-        notifications.innerText = "Game over. " + player1.name + " won!";
+        notifications.innerText = player1.name + " won!";
     } else if (player2.xOrO === winningSymbol){
-        notifications.innerText = "Game over. " + player2.name + " won!";
+        notifications.innerText = player2.name + " won!";
     } else {
         notifications.innerText = "It's a tie.";
     }
