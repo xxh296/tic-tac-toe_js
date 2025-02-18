@@ -49,7 +49,7 @@ const play = (function () {
         // no empty spaces left?
         const isTie = !Object.values(Gameboard).includes("");
         if (isTie) {
-            return "It's a tie!";
+            return "Tie";
         }
 
         return null; // No winner yet
@@ -57,8 +57,6 @@ const play = (function () {
 
     // mark an empty cell as X
     const makeMoveX = (cell) => {
-        // DEBUG
-        // console.log("Cell in Gameboard: " + Gameboard[cell]);
         if (Gameboard[cell] === ""){
             Gameboard[cell] = "X";
             populateGameboard();
@@ -152,8 +150,8 @@ cells.forEach(cell => {
             play.makeMoveO(clickedCell.id);
         } 
 
-        if (play.checkForGameover() === "X" || play.checkForGameover() === "O"){
-            determineWinner(play.checkForGameover);
+        if (play.checkForGameover() === "X" || play.checkForGameover() === "O" || play.checkForGameover() === "Tie"){
+            determineWinner(play.checkForGameover());
         }
 
         changeTurn();
@@ -163,10 +161,10 @@ cells.forEach(cell => {
 function determineWinner(winningSymbol){
     if (player1.xOrO === winningSymbol){
         notifications.innerText = "Game over. " + player1.name + " won!";
-    } else if (player2.xOrO = winningSymbol){
+    } else if (player2.xOrO === winningSymbol){
         notifications.innerText = "Game over. " + player2.name + " won!";
     } else {
-        return null;
+        notifications.innerText = "It's a tie.";
     }
 }
 
