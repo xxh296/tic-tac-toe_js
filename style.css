@@ -1,6 +1,4 @@
 * {
-    /* DEBUG */
-    /* outline: solid silver; */
     background-color: #444;
     color: #eee;
 
@@ -30,7 +28,11 @@ form {
 }
 
 input, button {
-    margin: 1rem 0
+    margin: 1rem 0;
+}
+
+input[type="text"]{
+    text-align: center;
 }
 
 fieldset {
@@ -39,7 +41,7 @@ fieldset {
 
 #btn-form-players, input, #play-again {
     width: 50vw;
-    height: 5vh;
+    height: 5rem;
     border-radius: 0.5rem;
     border: 2px solid darkorange;
     font-size: 1.5rem;
