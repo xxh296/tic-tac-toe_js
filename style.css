@@ -49,6 +49,7 @@ fieldset {
 
 button {
     background-color: darkorange;
+    cursor: pointer;
 }
 
 fieldset {
