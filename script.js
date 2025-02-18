@@ -39,8 +39,14 @@ const play = (function () {
             if (value && value === Gameboard[cell2] && value === Gameboard[cell3]) {
                 switch (value) {
                     case "X":
+                        document.querySelector(`#${cell1}`).style.backgroundColor = "red";
+                        document.querySelector(`#${cell2}`).style.backgroundColor = "red";
+                        document.querySelector(`#${cell3}`).style.backgroundColor = "red";
                         return "X"; // X wins
                     case "O":
+                        document.querySelector(`#${cell1}`).style.backgroundColor = "red";
+                        document.querySelector(`#${cell2}`).style.backgroundColor = "red";
+                        document.querySelector(`#${cell3}`).style.backgroundColor = "red";
                         return "O"; // O wins
                 }
             }
