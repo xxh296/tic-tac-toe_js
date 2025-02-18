@@ -14,7 +14,6 @@ const createPlayer = (function () {
 })();
 
 const play = (function () {
-    //DEBUG: test values for some cells
     const Gameboard = {
         A_1: "", B_1: "", C_1: "",
         A_2: "", B_2: "", C_2: "",
@@ -39,14 +38,14 @@ const play = (function () {
             if (value && value === Gameboard[cell2] && value === Gameboard[cell3]) {
                 switch (value) {
                     case "X":
-                        document.querySelector(`#${cell1}`).style.backgroundColor = "red";
-                        document.querySelector(`#${cell2}`).style.backgroundColor = "red";
-                        document.querySelector(`#${cell3}`).style.backgroundColor = "red";
+                        document.querySelector(`#${cell1}`).style.backgroundColor = "darkorange";
+                        document.querySelector(`#${cell2}`).style.backgroundColor = "darkorange";
+                        document.querySelector(`#${cell3}`).style.backgroundColor = "darkorange";
                         return "X"; // X wins
                     case "O":
-                        document.querySelector(`#${cell1}`).style.backgroundColor = "red";
-                        document.querySelector(`#${cell2}`).style.backgroundColor = "red";
-                        document.querySelector(`#${cell3}`).style.backgroundColor = "red";
+                        document.querySelector(`#${cell1}`).style.backgroundColor = "darkorange";
+                        document.querySelector(`#${cell2}`).style.backgroundColor = "darkorange";
+                        document.querySelector(`#${cell3}`).style.backgroundColor = "darkorange";
                         return "O"; // O wins
                 }
             }
@@ -66,7 +65,6 @@ const play = (function () {
         if (Gameboard[cell] === ""){
             Gameboard[cell] = "X";
             populateGameboard();
-            // return checkForGameover();
         } else {
             console.log("This cell is already used.")
         }
@@ -77,18 +75,12 @@ const play = (function () {
         if (Gameboard[cell] === ""){
             Gameboard[cell] = "O";
             populateGameboard();
-            // return checkForGameover();
         } else {
             console.log("This cell is already used.")
         }
     };
 
-    return {
-        Gameboard,   // the Gameboard
-        makeMoveX,   // the function
-        makeMoveO,   // the function
-        checkForGameover, // the function
-    };
+    return {Gameboard, makeMoveX, makeMoveO, checkForGameover};
 
 })();
 
@@ -100,6 +92,7 @@ let player2 = null;
 
 const gameController = (function(){
 
+    const gameTitle = document.querySelector("h1");
     const formPlayers = document.querySelector("#form-players");
     const gameBoard = document.querySelector("#gameboard");
 
@@ -117,6 +110,7 @@ const gameController = (function(){
 
         player2 = createPlayer(document.querySelector('#input-second-player').value, secondXorO);
         gameBoard.style.display = "grid";
+        gameTitle.remove();
         formPlayers.remove();
         notifications.innerText = "Turn: X";
     });
@@ -124,14 +118,14 @@ const gameController = (function(){
      return {player1, player2}
 })();
 
-    // UI gameboard values need to come from Gameboard
-    // TODO: see, if it can be moved away from the global scope
-    function populateGameboard() {
-        for (const [key, value] of Object.entries(play.Gameboard)) {
-            const cell = document.querySelector(`#${key}`);            
-            cell.textContent = value;
-        }
+// UI gameboard values need to come from Gameboard
+// TODO: see, if it can be moved away from the global scope
+function populateGameboard() {
+    for (const [key, value] of Object.entries(play.Gameboard)) {
+        const cell = document.querySelector(`#${key}`);            
+        cell.textContent = value;
     }
+}
 
 // whose turn?
 let turn = "X";

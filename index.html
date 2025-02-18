@@ -11,49 +11,39 @@
     <title>Tic Tac Toe</title>
 </head>
 <body>
-    <h1>Tic Tac Toe</h1>
-    <br><br><br>
     <div class="content">
-        <form action="submit" id="form-players">
-            <input type="text" name="" id="input-first-player" placeholder="First player's name" required>
-            <fieldset>
-                <legend>Playing crosses (Xs) or noughts (Os)?</legend>
-                <label>
-                  <input type="radio" name="response-player1" value="X" checked required> Crosses (Xs)
-                </label>
-                <label>
-                  <input type="radio" name="response-player1" value="O"> Noughts (Os)
-                </label>
-              </fieldset>
-            <input type="text" name="" id="input-second-player" placeholder="Second player's name" required>
-              <button type="submit" id="btn-form-players">Submit</button>
-        </form>
+      <h1>Play Tic Tac Toe!</h1>
+      <form action="submit" id="form-players">
+          <input type="text" name="" id="input-first-player" placeholder="First player's name" required>
+          <fieldset>
+              <legend>Choose</legend>
+              <label>
+                <input type="radio" name="response-player1" value="X" checked required> Crosses (X)
+              </label>
+              <label>
+                <input type="radio" name="response-player1" value="O"> Noughts (O)
+              </label>
+            </fieldset>
+          <input type="text" name="" id="input-second-player" placeholder="Second player's name" required>
+            <button type="submit" id="btn-form-players">START</button>
+      </form>
 
-        <div id="gameboard">
-          <div id="A_1" class="cell"></div>
-          <div id="B_1" class="cell"></div>
-          <div id="C_1" class="cell"></div>
-          <div id="A_2" class="cell"></div>
-          <div id="B_2" class="cell"></div>
-          <div id="C_2" class="cell"></div>
-          <div id="A_3" class="cell"></div>
-          <div id="B_3" class="cell"></div>
-          <div id="C_3" class="cell"></div>
-        </div>
+      <div id="gameboard">
+        <div id="A_1" class="cell"></div>
+        <div id="B_1" class="cell"></div>
+        <div id="C_1" class="cell"></div>
+        <div id="A_2" class="cell"></div>
+        <div id="B_2" class="cell"></div>
+        <div id="C_2" class="cell"></div>
+        <div id="A_3" class="cell"></div>
+        <div id="B_3" class="cell"></div>
+        <div id="C_3" class="cell"></div>
+      </div>
 
-        <div id="notifications"></div>
-        <button id="play-again">Play again</button>
+      <div id="notifications"></div>
+      <button id="play-again">PLAY AGAIN</button>
 
     </div>
-    <br><br><br>
-
-    <p>For the UI:
-        <ul>
-            <li><s>A button to start the game (to replace onclick with a form for player1 and player2 names)</s>Start with a single form for both players.</li>
-            <li>Once the names and X/O info is entered, draw the board, and prompt `xPlayer` to make the first move</li>
-            <li>Announce the winner, highlight the winning line, and add a "new game" button.</li>
-        </ul>
-    </p>
     
 </body>
 </html>

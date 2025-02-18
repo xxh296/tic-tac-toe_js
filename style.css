@@ -1,7 +1,7 @@
 * {
     /* DEBUG */
     /* outline: solid silver; */
-    background-color: #333333;
+    background-color: #444;
     color: #eee;
 
 
@@ -11,31 +11,104 @@
     font-family: Roboto, system-ui, sans-serif;
 }
 
-#btn-form-players {
-    display: block;
+h1 {
+    font-size: 4rem;
+    color: darkorange;
+}
+
+.content {
+    display: grid; 
+    grid-template-rows: auto;
+    place-items: center;
+    justify-items: center;
+    height: 100vh; 
+    text-align: center;
+}
+
+form {
+    width: 50vw;
+}
+
+input, button {
+    margin: 1rem 0
+}
+
+fieldset {
+    margin: 0 0 1rem 0;
+}
+
+#btn-form-players, input, #play-again {
+    width: 50vw;
+    height: 5vh;
+    border-radius: 0.5rem;
+    border: 2px solid darkorange;
+    font-size: 1.5rem;
 } 
 
-#gameboard {
+button {
+    background-color: darkorange;
+}
+
+fieldset {
+    width: 50vw;
+    font-size: 1.5rem;
     display: grid;
+    justify-items: center;
+    border-radius: 0.5rem;
+    border: 2px solid darkorange;
+    display: inline;
+}
+
+#gameboard {
+    display: none;
     grid-template-rows: repeat(3, 1fr);
     grid-template-columns: repeat(3, 1fr);
-    width: 15rem;
-    height: 15rem;    
+    width: 24rem;
+    height: 24rem;    
+    justify-items: center;
 }
 
 .cell {
-    width: 5rem;
-    height: 5rem;
+    width: 8rem;
+    height: 8rem;
     border: 2px solid darkorange;
+    font-size: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #notifications {
-    /* border: 2px solid darkorange; */
     color: darkorange;
+    font-size: 2rem;
 }
 
 #play-again {
     display: none;
+}
+
+input::placeholder {
+    color: #eee;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+/* Radio button styling */
+input[type="radio"] {
+    width: 3vw;
+    height: 3vw;
+    appearance: none;
+    cursor: pointer;
+    vertical-align: middle;
+}
+
+input[type="radio"]:checked {
+    background-color: darkorange; 
+}
+
+label {
+    font-size: 1.2rem; 
+    cursor: pointer;
 }
 
 
